@@ -6,8 +6,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
 
 import java.util.Date;
 
@@ -25,6 +28,24 @@ public class PatientsMvcApplication {
             patientRepository.save(new Patient(null,"Ali",new Date(),false,24));
             patientRepository.save(new Patient(null,"Amine",new Date(),true,11));
 
+        };
+    }
+    @Bean
+    CommandLineRunner commandLineRunner(JdbcUserDetailsManager jdbcUserDetailsManager){
+        PasswordEncoder passwordEncoder= passwordEncoder();
+        return args -> {
+
+            UserDetails u1= jdbcUserDetailsManager.loadUserByUsername("user3");
+            if (u1==null) jdbcUserDetailsManager.createUser(User.withUsername("user3").password(passwordEncoder.encode("1234")).roles("USER").build());
+
+            UserDetails u2= jdbcUserDetailsManager.loadUserByUsername("user4");
+            if (u2==null) jdbcUserDetailsManager.createUser(User.withUsername("user4").password(passwordEncoder.encode("1234")).roles("USER").build());
+
+            UserDetails u3= jdbcUserDetailsManager.loadUserByUsername("admin2");
+            if (u3==null) jdbcUserDetailsManager.createUser(User.withUsername("admin2").password(passwordEncoder.encode("admin")).roles("USER","ADMIN").build());
+
+            UserDetails u4= jdbcUserDetailsManager.loadUserByUsername("admin");
+            if (u3==null) jdbcUserDetailsManager.createUser(User.withUsername("admin").password(passwordEncoder.encode("admin")).roles("USER","ADMIN").build());
         };
     }
 
