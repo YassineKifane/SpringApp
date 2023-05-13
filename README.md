@@ -8,7 +8,7 @@ This project is a web application for managing patient records. It allows users 
 
 The login page allows users to log in to the application using their username and password.
 
-![Login Page](/images/login.png)
+![Login Page](/Images/login.png)
 
 ### Interface 2: Show All Patients
 
