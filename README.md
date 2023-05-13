@@ -14,30 +14,29 @@ The login page allows users to log in to the application using their username an
 
 The "Show All Patients" page displays a list of all patients in the database. Users can view patient details and edit or delete individual records.
 
-![Show All Patients](/images/index.png)
+![Show All Patients](/Images/index.png)
 
 ### Interface 3: Search
 
 The index page also has a search functionnality.
 
-![Show All Patients](/images/indexSearch.png)
+![Show All Patients](/Images/indexSearch.png)
 
 ### Interface 4: Add a New Patient
 
 The "Add a New Patient" page allows users to add a new patient record to the database.
 
-![Add a New Patient](/images/addpatient.png)
+![Add a New Patient](/Images/addpatient.png)
 
 ### Interface 5: Update an Existing Patient
 
 The "Update Patient" page allows users to edit an existing patient record in the database.
 
-![Update an Existing Patient](/images/update.png)
+![Update an Existing Patient](/Images/update.png)
 
 ### Interface 6: Login as normal user
 
 A normal user is not allowed to add , delete or update a patient record.
 
-![Normal user](/images/auth_normal_user.png)
+![Normal user](/Images/auth_normal_user.png)
 
-## Spring Security
